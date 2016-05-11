@@ -8,7 +8,7 @@
         <strong class='big-font'>What was done today</strong>
       </div>
       <div class="col-md-12">
-          <%=simple_format @status.what_was_done_today%>
+          <%=simple_format(sanitize @status.what_was_done_today, tags: %w(strong b em a))%>
       </div>
   </div>
   <div class="margin-div"></div>
@@ -17,7 +17,7 @@
       <strong class='big-font'>Plan for tomorrow</strong>
     </div>
     <div class="col-md-12">
-      <%=simple_format @status.plan_for_tomorrow%>
+      <%=simple_format(sanitize @status.plan_for_tomorrow, tags: %w(strong b em a)) %>
     </div>
   </div>
   <div class="margin-div"></div>
@@ -26,7 +26,7 @@
       <strong class='big-font'>Impediments</strong>
     </div>
     <div class="col-md-12">
-      <%=simple_format @status.impediments%>
+      <%=@status.impediments%>
     </div>
   </div>
   <div class="margin-div"></div>

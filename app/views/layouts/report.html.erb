@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TeamStatus</title>
+  <%= stylesheet_link_tag    'report' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="clearfix">
+    <%=flash_html%>
+    <%= yield %>
+  </div>
+</body>
+</html>

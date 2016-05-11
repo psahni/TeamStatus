@@ -44,7 +44,8 @@ class StatusController < ApplicationController
  end
 
  def status_report
-   
+   @status_users = Status.joins(:user).where("Date(statuses.created_at) = ?", Date.today)
+   render :layout => 'report'
  end
 
 
