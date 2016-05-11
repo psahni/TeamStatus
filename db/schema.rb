@@ -16,6 +16,9 @@ ActiveRecord::Schema.define(version: 20160509045956) do
   create_table "statuses", force: :cascade do |t|
     t.text     "what_was_done_today", limit: 65535
     t.text     "plan_for_tomorrow",   limit: 65535
+    t.integer  "user_id",             limit: 4
+    t.text     "impediments",         limit: 65535
+    t.boolean  "done"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
   end

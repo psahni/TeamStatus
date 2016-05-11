@@ -1,0 +1,36 @@
+<div class="template">
+  <div class="row">
+    <div class="col-md-12">user: <%=@status.user.try(:email)%></div>
+  </div>
+  <div class="margin-div"></div>
+  <div class="row">
+      <div class="col-md-12">
+        <strong class='big-font'>What was done today</strong>
+      </div>
+      <div class="col-md-12">
+          <%=simple_format @status.what_was_done_today%>
+      </div>
+  </div>
+  <div class="margin-div"></div>
+  <div class="row">
+    <div class="col-md-12">
+      <strong class='big-font'>Plan for tomorrow</strong>
+    </div>
+    <div class="col-md-12">
+      <%=simple_format @status.plan_for_tomorrow%>
+    </div>
+  </div>
+  <div class="margin-div"></div>
+  <div class="row">
+    <div class="col-md-12">
+      <strong class='big-font'>Impediments</strong>
+    </div>
+    <div class="col-md-12">
+      <%=simple_format @status.impediments%>
+    </div>
+  </div>
+  <div class="margin-div"></div>
+  <div class="">
+    <%=link_to "Edit Status", edit_status_path(@status)%>
+  </div>
+</div>

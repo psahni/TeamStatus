@@ -1,0 +1,31 @@
+<div class="template">
+  <div class="form">
+    <%= form_for @status, :url => (@status.new_record? ? status_index_path : status_path(@status)), :class => 'form-horizontal'  do |form|%>
+      <div class="form-group">
+        <label class="control-label">Email</label>
+        <%=form.text_field :user_email, :class => 'form-control', :placeholder => "Enter globallogic email"%>
+        <span class='error'><%=@status.errors[:user_email][0] if @status.errors[:user_email]%></span>
+      </div>
+      <div class="form-group">
+        <%=form.label :what_was_done_today, :class => 'control-label'%>
+        <%=form.text_area :what_was_done_today, :class => 'form-control', :rows => 10%>
+        <span class='error'><%=@status.errors[:what_was_done_today][0] if @status.errors[:what_was_done_today]%></span>
+      </div>
+      <div class="form-group">
+        <%=form.label :plan_for_tomorrow, :class => 'control-label'%>
+        <%=form.text_area :plan_for_tomorrow, :class => 'form-control', :rows => 10%>
+        <span class='error'><%=@status.errors[:plan_for_tomorrow][0] if @status.errors[:plan_for_tomorrow]%></span>
+      </div>
+      <div class="form-group">
+        <%=form.label :impediments, :class => 'control-label'%>
+        <%=form.text_field :impediments, :class => 'form-control'%>
+      </div>
+      <div class="checkbox">
+        <label><%=form.check_box :done%> Done</label>
+      </div>
+      <div class="form-group">
+          <%=form.submit "Submit", :class => 'btn btn-default'%>
+      </div>
+    <% end %>
+  </div>
+</div>
