@@ -12,12 +12,12 @@
     <tbody>
       <% @status_users.each do |status_user| %>
         <tr>
-          <td><%=status_user.user.name%></td>
-          <td><%=simple_format(sanitize status_user.what_was_done_today, tags: %w(strong b em a))%></td>
-          <td><%=simple_format(sanitize status_user.plan_for_tomorrow, tags:  %w(strong b em a)) %></td>
-          <td><%=status_user.impediments%></td>
-          <td><%=status_user.done == 1 ? "Yes" : "No"%></td>
-          <td>Done</td>
+          <td class='small'><%=status_user.user.name%></td>
+          <td class='what-was-done-today'><%=simple_format(sanitize status_user.what_was_done_today, tags: %w(strong b em a))%></td>
+          <td class='plan-for-tomorrow'><%=simple_format(sanitize status_user.plan_for_tomorrow, tags:  %w(strong b em a)) %></td>
+          <td class='impediments'><%=status_user.impediments%></td>
+          <td class='small'><%=status_user.done == 1 ? "Yes" : "No"%></td>
+          <td class'small'>Done</td>
         </tr>
         <% end %>
     </tbody>

@@ -1,6 +1,6 @@
 
 table {
-    border-collapse: collapse;
+    border-collapse: collapse;    
     font-family: monospace;
     overflow: auto;
 }
@@ -13,6 +13,12 @@ table {
     width: 100%;
 }
 
+.title, .small, .impediments{
+  width: 10%
+}
 
+.what-was-done-today, .plan-for-tomorrow{
+    width: 40%;
+}
 
 tr:nth-child(even) {background-color: #f5f5f5}
