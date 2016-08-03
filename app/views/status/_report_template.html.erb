@@ -1,4 +1,4 @@
-<table class="table table-striped">
+<table class="table table-striped" style='border: 1px solid black; border-style: collapse;'>
     <thead>
       <tr>
         <th>Name</th>
@@ -10,13 +10,13 @@
       </tr>
     </thead>
     <tbody>
-      <% @status_users.each do |status_user| %>
+      <%  @users_status.each do |users_status| %>
         <tr>
-          <td class='small'><%=status_user.user.name%></td>
-          <td class='what-was-done-today'><%=simple_format(sanitize status_user.what_was_done_today, tags: %w(strong b em a))%></td>
-          <td class='plan-for-tomorrow'><%=simple_format(sanitize status_user.plan_for_tomorrow, tags:  %w(strong b em a)) %></td>
-          <td class='impediments'><%=status_user.impediments%></td>
-          <td class='small'><%=status_user.done == 1 ? "Yes" : "No"%></td>
+          <td class='small'><%=users_status.user.name%></td>
+          <td class='what-was-done-today'><%=simple_format(sanitize users_status.what_was_done_today, tags: %w(strong b em a))%></td>
+          <td class='plan-for-tomorrow'><%=simple_format(sanitize users_status.plan_for_tomorrow, tags:  %w(strong b em a)) %></td>
+          <td class='impediments'><%=users_status.impediments%></td>
+          <td class='small'><%=users_status.done == 1 ? "Yes" : "No"%></td>
           <td class'small'>Done</td>
         </tr>
         <% end %>
