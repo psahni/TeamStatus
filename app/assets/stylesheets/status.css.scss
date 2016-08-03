@@ -33,6 +33,7 @@ label{
 
 .template{
   width: 100%;
+  min-height: 300px;
 }
 
 .big-font{
@@ -50,4 +51,12 @@ label{
 
 .list-font{
   font-size: 20px;
+}
+
+.float-right{
+  float:right;
+}
+
+.bold-link{
+  font-weight: 800;
 }
