@@ -9,7 +9,7 @@ class Status < ActiveRecord::Base
 
   attr_accessor  :user_email
 
-  validate :email_associated_user
+  validate :email_of_associated_user
 
   before_create :associate_user
 
@@ -17,13 +17,13 @@ class Status < ActiveRecord::Base
     user.try(:email) || @user_email
   end
 
-  def email_associated_user
+  def email_of_associated_user
     @user = User.where(email: @user_email).first
     self.errors.add(:user_email, "No associated user found in the database with provided email") if @user.blank?
   end
 
 
-  def associate_user    
+  def associate_user
     if @user
       self.user_id = @user.id
     end
