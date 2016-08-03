@@ -1,5 +1,8 @@
 class StatusController < ApplicationController
 
+  #skip_before_filter :verify_authenticity_token, :only => [:notify_status]
+
+
   def index
     redirect_to all_status_status_index_path
   end
@@ -40,14 +43,20 @@ class StatusController < ApplicationController
  end
 
  def all_status
-   @status_users = Status.joins(:user).where("Date(statuses.created_at) = ?", Date.today)
+   @users_status = Status.joins(:user).where("Date(statuses.created_at) = ?", Date.today)
  end
 
  def status_report
-   @status_users = Status.joins(:user).where("Date(statuses.created_at) = ?", Date.today)
+   @users_status = Status.joins(:user).where("Date(statuses.created_at) = ?", Date.today)
    render :layout => 'report'
  end
 
+ def notify_status
+   @users_status = Status.joins(:user).where("Date(statuses.created_at) = ?", Date.today)
+   Rails.logger.info @users_status.inspect
+   UserNotifier.send_status(@users_status).deliver
+   render :text => "successfully sent!!"
+ end
 
 # PRIVATE #
 
