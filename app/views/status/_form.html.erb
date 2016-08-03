@@ -8,7 +8,7 @@
       </div>
       <div class="form-group">
         <%=form.label :what_was_done_today, :class => 'control-label'%>
-        <%=form.text_area :what_was_done_today, :class => 'form-control', :rows => 10%>
+        <%=form.text_area :what_was_done_today, :class => 'htmlize form-control', :rows => 10%>
         <span class='error'><%=@status.errors[:what_was_done_today][0] if @status.errors[:what_was_done_today]%></span>
         <div class="clearfix">
           * Writing HTML is allowed. For bold text write &lt;strong&gt;Some Text&lt;/strong&gt;
@@ -16,7 +16,7 @@
       </div>
       <div class="form-group">
         <%=form.label :plan_for_tomorrow, :class => 'control-label'%>
-        <%=form.text_area :plan_for_tomorrow, :class => 'form-control', :rows => 10%>
+        <%=form.text_area :plan_for_tomorrow, :class => 'htmlize form-control', :rows => 10%>
         <span class='error'><%=@status.errors[:plan_for_tomorrow][0] if @status.errors[:plan_for_tomorrow]%></span>
         <div class="clearfix">
           * Writing HTML is allowed. For bold text write &lt;strong&gt;Some Text&lt;/strong&gt;
