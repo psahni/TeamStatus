@@ -4,11 +4,10 @@
   <title>TeamStatus</title>
   <%= stylesheet_link_tag    'report' %>
   <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+  <%= csrf_meta_tags if self.respond_to?("protect_against_forgery?")%>
 </head>
 <body>
-  <div class="clearfix">
-    <%=flash_html%>
+  <div class="clearfix">    
     <%= yield %>
   </div>
 </body>
