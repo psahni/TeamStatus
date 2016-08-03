@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: TeamStatus_production
-  username: TeamStatus
-  password: <%= ENV['TEAMSTATUS_DATABASE_PASSWORD'] %>
+  username: root
+  password: root
