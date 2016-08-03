@@ -1,9 +1,9 @@
 <div class="template">
   <div class="row">
-    <% if @status_users.any? %>
+    <% if @users_status.any? %>
       <h4>Following people have updated status today <%=Date.today.strftime("%m/%b/%Y")%></h4>
       <div class="margin-div"></div>
-      <% @status_users.each do |status_user| %>
+      <% @users_status.each do |status_user| %>
         <div class="col-md-12">
           <a class='no-text-decor list-font' href="<%=status_path(status_user)%>"><%=status_user.user.name%></a>
         </div>
@@ -12,10 +12,10 @@
   <% else %>
     Nobody has updated status yet.
   <% end %>
-  <div class="margin-div"></div>
-  <div class="row">
-    <%=link_to "Add-Status", new_status_path, :class => 'no-text-decor' %>
-        |
-    <%=link_to "See-Status-Report", status_report_status_index_path, :class => 'no-text-decor'%>
-  </div>
+</div>
+<div class="margin-div"></div>
+<div class="row">
+  <%=link_to "Add-Status", new_status_path, :class => 'no-text-decor' %>
+      |
+  <%=link_to "See-Status-Report", status_report_status_index_path, :class => 'no-text-decor'%>
 </div>
