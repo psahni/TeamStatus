@@ -6,12 +6,15 @@ class Status < ActiveRecord::Base
             :what_was_done_today,
             :plan_for_tomorrow,
             :presence => true
+  validate :email_of_associated_user
 
   attr_accessor  :user_email
 
-  validate :email_of_associated_user
-
+  #CallBacks
   before_create :associate_user
+
+  #Associations
+  has_many :tasks
 
   def user_email
     user.try(:email) || @user_email
