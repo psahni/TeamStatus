@@ -3,11 +3,11 @@ class Status < ActiveRecord::Base
   #delegate :email, :to => :user, :prefix => 'user'
 
   validates :user_email,
-            :what_was_done_today,
-            :plan_for_tomorrow,
             :presence => true
 
   attr_accessor  :user_email
+
+  has_many :tasks
 
   validate :email_of_associated_user
 
