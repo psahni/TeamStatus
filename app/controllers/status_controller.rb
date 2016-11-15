@@ -10,6 +10,8 @@ class StatusController < ApplicationController
 
   def new
     @status = Status.new
+    @status.today_tasks.build
+    @status.tomorrow_tasks.build
   end
 
 

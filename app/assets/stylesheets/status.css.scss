@@ -5,7 +5,7 @@
 
 body{
   padding-top: 50px;
-  background-color: lightgrey;
+  background-color: floralwhite;
   font-family: monospace;
 }
 
@@ -20,6 +20,10 @@ a.major-link{
 
 label{
   font-weight: 600;
+}
+
+label.control-label{
+  font-size: 25px;
 }
 
 .btn-default{
@@ -59,4 +63,11 @@ label{
 
 .bold-link{
   font-weight: 800;
+}
+
+.form-subgroup{
+  padding-top: 10px;
+  label{
+    display: block;
+  }
 }
