@@ -1,8 +1,13 @@
-<div class="form-subgroup">
-  <%=form.label :name %>
-  <%=form.text_field :name, :class => 'form-control' %>
-</div>
-<div class="form-subgroup">
-  <%=form.label :description %>
-  <%=form.text_area  :description, :class => 'form-control' %>
+<div class="task-fields">
+  <div class="form-group">
+    <label for="">Title</label>
+    <%=form.text_field :name, :class => 'form-control' %>
+    <span class='error'><%=status.errors['today_tasks.name'][0] if status && status.errors['today_tasks.name']%></span>
+  </div>
+  <div class="form-group">
+    <label for="">Description</label>
+    <%=form.text_area  :description, :class => 'form-control' %>
+    <span class='error'><%=status.errors['today_tasks.description'][0] if status && status.errors['today_tasks.description']%></span>
+  </div>
+  <%=form.hidden_field :task_type, :value => status_task_type%>
 </div>

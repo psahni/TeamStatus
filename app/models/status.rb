@@ -19,17 +19,13 @@ class Status < ActiveRecord::Base
   #---------------------------------------------------------------------------------------------------------------------
 
   accepts_nested_attributes_for :tasks,
-                                :allow_destroy => true,
-                                :reject_if => :all_blank
-
+                                :allow_destroy => true
 
   accepts_nested_attributes_for :today_tasks,
-                                :allow_destroy => true,
-                                :reject_if => :all_blank
+                                :allow_destroy => true
 
   accepts_nested_attributes_for :tomorrow_tasks,
-                                :allow_destroy => true,
-                                :reject_if => :all_blank
+                                :allow_destroy => true
 
   #---------------------------------------------------------------------------------------------------------------------
 

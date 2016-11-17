@@ -6,27 +6,37 @@
         <%=form.text_field :user_email, :class => 'form-control', :placeholder => "Enter globallogic email"%>
         <span class='error'><%=@status.errors[:user_email][0] if @status.errors[:user_email]%></span>
       </div>
-      <div class="form-group">
+      <div class="form-group today_tasks">
+        <%=form.label :what_was_done_today, :class => 'control-label'%>
         <%= form.fields_for :today_tasks do |today_task| %>
           <div>
-            <%=today_task.label :what_was_done_today, :class => 'control-label'%>
-            <%=render :partial => 'task_fields', :locals => {:form => today_task} %>
-            <div class="form-subgroup">
-              <%=link_to_add_more(form, :today_tasks, 'task_fields')%>
-            </div>
+            <%=render :partial => 'task_fields',
+                      :locals => { :form => today_task,
+                                   :status => @status,
+                                   :status_task_type => Task::TASK_TYPES[:today]
+                      }
+            %>
           </div>
         <% end %>
       </div>
       <div class="form-group">
+        <%=link_to_add_more(form, :today_tasks, 'task_fields', { :status => nil, :status_task_type => Task::TASK_TYPES[:today] })%>
+      </div>
+      <div class="form-group tomorrow_tasks">
+        <%=form.label :plan_for_tomorrow, :class => 'control-label'%>
         <%= form.fields_for :tomorrow_tasks do |tomorrow_task| %>
           <div>
-            <%=tomorrow_task.label :plan_for_tomorrow, :class => 'control-label'%>
-            <%=render :partial => 'task_fields', :locals => {:form => tomorrow_task} %>
-          </div>
-          <div class="form-subgroup">
-            <%=link_to_add_more(form, :tomorrow_tasks, 'task_fields')%>
+            <%=render :partial => 'task_fields',
+                      :locals => { :form => tomorrow_task,
+                                   :status => @status,
+                                   :status_task_type => Task::TASK_TYPES[:tomorrow]
+                      }
+            %>
           </div>
         <% end %>
+      </div>
+      <div class="form-group">
+        <%=link_to_add_more(form, :tomorrow_tasks, 'task_fields', {  :status => nil, :status_task_type => Task::TASK_TYPES[:tomorrow] })%>
       </div>
       <div class="form-group">
         <%=form.label :impediments, :class => 'control-label'%>
