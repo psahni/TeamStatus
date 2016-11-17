@@ -1,6 +1,8 @@
 <div class="template">
   <div class="row">
-    <div class="col-md-12">user: <%=@status.user.try(:email)%></div>
+    <div class="col-md-12">
+      <span class="hero-tag">Status: <%=@status.user.try(:email)%></span>
+    </div>
   </div>
   <div class="margin-div"></div>
   <div class="row">

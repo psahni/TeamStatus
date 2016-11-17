@@ -19,7 +19,7 @@ class StatusController < ApplicationController
     @status = Status.new(status_params)
     if @status.save
       flash[:success] = "Your status has been successfully added."
-      redirect_to status_path(@status, :user => @status.user_email)
+      redirect_to status_path(@status, :user => @status.user.username )
     else
       render :action => :new
     end
