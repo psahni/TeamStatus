@@ -15,5 +15,14 @@ module TeamStatus
     config.action_mailer.raise_delivery_errors = false
     #config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
     config.action_mailer.delivery_method = :sendmail
+
+
+    # - DISABLE TESTS
+    config.generators do |g|
+      g.test_framework  :rspec, :fixture => false
+      g.view_specs      false
+      g.helper_specs    false
+    end
+
   end
 end
