@@ -1,0 +1,3 @@
+# Sanitize tags.
+<%#=simple_format(sanitize @status.what_was_done_today, tags: %w(strong b em a))%>
+- Allow only strong, b, em, a

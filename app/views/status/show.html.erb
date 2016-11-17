@@ -4,26 +4,32 @@
   </div>
   <div class="margin-div"></div>
   <div class="row">
-      <div class="col-md-12">
-        <strong class='big-font'>What was done today</strong>
-      </div>
-      <div class="col-md-12">
-          <%=simple_format(sanitize @status.what_was_done_today, tags: %w(strong b em a))%>
-      </div>
-  </div>
-  <div class="margin-div"></div>
-  <div class="row">
     <div class="col-md-12">
-      <strong class='big-font'>Plan for tomorrow</strong>
+      <strong class='big-font label'>What was done today</strong>
     </div>
     <div class="col-md-12">
-      <%=simple_format(sanitize @status.plan_for_tomorrow, tags: %w(strong b em a)) %>
+      <% @status.today_tasks.each do |today_task| %>
+        <div><strong><%=today_task.name%></strong></div>
+        <div><%=today_task.description%></div>
+      <% end %>
     </div>
   </div>
   <div class="margin-div"></div>
   <div class="row">
     <div class="col-md-12">
-      <strong class='big-font'>Impediments</strong>
+      <strong class='big-font label'>Plan for tomorrow</strong>
+    </div>
+    <div class="col-md-12">
+      <% @status.tomorrow_tasks.each do |tomorrow_task| %>
+        <div><strong><%=tomorrow_task.name%></strong></div>
+        <div><%=tomorrow_task.description%></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="margin-div"></div>
+  <div class="row">
+    <div class="col-md-12">
+      <strong class='big-font label'>Impediments</strong>
     </div>
     <div class="col-md-12">
       <%=@status.impediments%>
