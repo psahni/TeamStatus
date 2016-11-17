@@ -36,6 +36,7 @@ class StatusController < ApplicationController
 
  def update
    @status = Status.find(params[:id])
+   #debugger
    if @status.update_attributes(status_params)
      flash[:success] = "Your status has been successfully updated."
      redirect_to status_path(@status, :user => @status.user_email)
@@ -55,7 +56,6 @@ class StatusController < ApplicationController
 
  def notify_status
    @users_status = Status.joins(:user).where("Date(statuses.created_at) = ?", Date.today)
-   Rails.logger.info @users_status.inspect
    UserNotifier.send_status(@users_status).deliver
    render :text => "successfully sent!!"
  end
@@ -68,8 +68,8 @@ class StatusController < ApplicationController
     params.require(:status).permit(:user_email,
                                    :impediments,
                                    :done,
-                                   :today_tasks_attributes    => [:name, :description, :task_type],
-                                   :tomorrow_tasks_attributes => [:name, :description, :task_type]
+                                   :today_tasks_attributes    => [:id, :name, :description, :task_type],
+                                   :tomorrow_tasks_attributes => [:id, :name, :description, :task_type]
     )
   end
 
