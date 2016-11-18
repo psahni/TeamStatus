@@ -68,8 +68,8 @@ class StatusController < ApplicationController
     params.require(:status).permit(:user_email,
                                    :impediments,
                                    :done,
-                                   :today_tasks_attributes    => [:id, :name, :description, :task_type],
-                                   :tomorrow_tasks_attributes => [:id, :name, :description, :task_type]
+                                   :today_tasks_attributes    => [:id, :name, :description, :task_type, :_destroy],
+                                   :tomorrow_tasks_attributes => [:id, :name, :description, :task_type, :_destroy]
     )
   end
 

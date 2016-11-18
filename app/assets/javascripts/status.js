@@ -24,10 +24,11 @@ enableAddMore = function(){
 removeTaskFields = function(){
   $(document).on('click', 'a.remove-task-link', function(e){
     e.preventDefault();
+    $(this).prev().val('1')
     $(this).parent().prev().slideUp('fast');
     $(this).hide();
   });
-}
+};
 
 $(document).ready(function(){
   enableAddMore();

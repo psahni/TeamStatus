@@ -4,7 +4,7 @@
     <%=form.text_field :name, :class => 'form-control' %>
     <span class='error'>
       <%=
-        status.errors["#{ status_task_type }.name"][0] if status && status.errors["#{ status_task_type }.name"]
+        status.errors["#{ status_task_type }_tasks.name"][0] if status && status.errors["#{ status_task_type }_tasks.name"]
       %>
     </span>
   </div>
@@ -13,11 +13,11 @@
     <%=form.text_area  :description, :class => 'form-control' %>
     <span class='error'>
       <%=
-          status.errors["#{ status_task_type }.description"][0] if status && status.errors["#{ status_task_type }.name"]
+          status.errors["#{ status_task_type }_tasks.description"][0] if status && status.errors["#{ status_task_type }_tasks.name"]
       %>
     </span>
   </div>
-  <%=form.hidden_field :task_type, :value => status_task_type%>
+  <%=form.hidden_field :task_type, :value => Task::TASK_TYPES[status_task_type.to_sym]%>
 </div>
 <div class="remove-task">
   <%=form.hidden_field :_destroy%>

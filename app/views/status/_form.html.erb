@@ -13,14 +13,14 @@
                     :locals => {
                                  :form => today_task,
                                  :status => @status,
-                                 :status_task_type => 'today_tasks',
+                                 :status_task_type => 'today',
                                  :enable_destroy => false
                               }
           %>
         <% end %>
       </div>
       <div class="form-group">
-        <%=link_to_add_more(form, :today_tasks, 'task_fields', { :status => nil, :status_task_type => 'today_tasks' })%>
+        <%=link_to_add_more(form, :today_tasks, 'task_fields', { :status => nil, :status_task_type => 'today' })%>
       </div>
       <div class="form-group tomorrow_tasks">
         <%=form.label :plan_for_tomorrow, :class => 'control-label'%>
@@ -29,14 +29,14 @@
                     :locals => {
                                  :form => tomorrow_task,
                                  :status => @status,
-                                 :status_task_type => 'tomorrow_tasks',
-                                 :enable_destroy => false
+                                 :status_task_type => 'tomorrow',
+                                 :enable_destroy => !tomorrow_task.object.new_record? && tomorrow_task.index > 0
                               }
           %>
         <% end %>
       </div>
       <div class="form-group">
-        <%=link_to_add_more(form, :tomorrow_tasks, 'task_fields', {  :status => nil, :status_task_type => 'tomorrow_tasks' })%>
+        <%=link_to_add_more(form, :tomorrow_tasks, 'task_fields', {  :status => nil, :status_task_type => 'tomorrow' })%>
       </div>
       <div class="form-group">
         <%=form.label :impediments, :class => 'control-label'%>

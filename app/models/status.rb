@@ -10,11 +10,13 @@ class Status < ActiveRecord::Base
   #
   # Associations
   #
-  has_many :tasks
+  has_many :tasks, :dependent => :destroy
   has_many :today_tasks, -> { where('tasks.task_type = ?', Task::TASK_TYPES[:today]) },
-           :class_name => 'Task'
+           :class_name => 'Task',
+           :dependent => :destroy
   has_many :tomorrow_tasks, -> { where('tasks.task_type = ?', Task::TASK_TYPES[:tomorrow]) },
-           :class_name => 'Task'
+           :class_name => 'Task',
+           :dependent => :destroy
 
   #---------------------------------------------------------------------------------------------------------------------
 
