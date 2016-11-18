@@ -81,3 +81,28 @@ label.control-label, .template .label{
   font-size: 30px;
   color: darkorange;
 }
+
+.remove-task{
+  position: relative;
+  float: right;
+  left: -175px;
+  top: -44px;
+}
+.remove-task a{
+  border: 1px solid red;
+  color: red;
+  padding: 5px;
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+.add-more{
+  padding: 5px;
+  border: 1px solid;
+  text-decoration: none;
+}
+
+.add-more:hover{
+  text-decoration: none;
+}

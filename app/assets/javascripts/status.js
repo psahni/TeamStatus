@@ -13,15 +13,24 @@ insertBoldTag = function(){
 
 enableAddMore = function(){
   $('[data-form-prepend]').click(function(e){
-      e.preventDefault;
+      e.preventDefault();
       var htmlToAppend = $(this).data('formPrepend'),
           $containerElement = "." + $(this).attr('append-container');
       htmlToAppend = htmlToAppend.replace(/_new_/g, (new Date()).getTime());
-      console.log(htmlToAppend);
       $($containerElement).append(htmlToAppend);
+  });
+},
+
+removeTaskFields = function(){
+  $(document).on('click', 'a.remove-task-link', function(e){
+    e.preventDefault();
+    $(this).parent().prev().slideUp('fast');
+    $(this).hide();
   });
 }
 
 $(document).ready(function(){
-    enableAddMore()
+  enableAddMore();
+  removeTaskFields();
 });
+
