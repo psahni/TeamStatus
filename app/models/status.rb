@@ -60,12 +60,8 @@ class Status < ActiveRecord::Base
     end
   end
 
-  def what_was_done_today(today_status)
-    today_status.today_tasks
-  end
-
   def self.fetch_today_statuses
-    return Status.includes(:user, :tasks).inject({}){|today_statuses, status|
+    return Status.includes(:user, :today_tasks, :tomorrow_tasks).where("Date(statuses.created_at) = ?", Date.today).inject({}){|today_statuses, status|
       today_statuses[status.user] = status
       today_statuses
     }
