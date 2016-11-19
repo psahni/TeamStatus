@@ -1,0 +1,50 @@
+<div class='template no-gutter'>
+  <div class="col-md-12">
+    <label for="" class="main-label col-md-5">
+      What was done today
+    </label>
+    <span class="edit-link-on-page col-md-4">
+      <%=link_to "Edit", edit_status_path(@status)%>
+    </span>
+  </div>
+  <div class="col-md-12">
+    <% @status.today_tasks.each do |today_task|%>
+      <div class="col-md-12">
+        <strong><%=today_task.name%></strong>
+      </div>
+      <div class="col-md-12">
+        <%=formatted_description(today_task.description)%>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-12">
+    <label for="" class="main-label col-md-5">
+      Plan for Tomorrow
+    </label>
+    <span class="edit-link-on-page col-md-4">
+      <%=link_to "Edit", edit_status_path(@status)%>
+    </span>
+  </div>
+  <div class="col-md-12">
+    <% @status.tomorrow_tasks.each do |tomorrow_task|%>
+      <div class="col-md-12">
+        <strong><%=tomorrow_task.name%></strong>
+      </div>
+      <div class="col-md-12">
+        <%=formatted_description(tomorrow_task.description)%>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-12 top-space">
+    <label for="" class="main-label col-md-5">Impediments</label>
+    <div class="col-md-12">
+      <%=@status.impediments.blank? ? 'No' : @status.impediments%>
+    </div>
+  </div>
+  <div class="col-md-12 top-space">
+    <label class="main-label col-md-5">Done and Updated</label>
+    <div class="col-md-12">
+      <%=@status.done == true ? 'Yes' : 'No'%>
+    </div>
+  </div>
+</div>

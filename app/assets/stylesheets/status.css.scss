@@ -6,7 +6,7 @@
 body{
   padding-top: 50px;
   background-color: #F0;
-  font-family: monospace;
+  font-family: Georgia, serif;
 }
 
 a{
@@ -26,9 +26,15 @@ label{
   font-weight: 600;
 }
 
-label.control-label, .template .label{
+label.control-label, .template label.main-label{
   font-size: 25px;
   color: #CB2823;
+  padding: 0;
+}
+
+.no-gutter [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
 }
 
 .btn-default{
@@ -105,4 +111,12 @@ label.control-label, .template .label{
 
 .add-more:hover{
   text-decoration: none;
+}
+
+.edit-link-on-page{
+  margin-left: 15%;
+}
+
+.top-space{
+  margin-top: 20px;
 }

@@ -14,7 +14,7 @@
                                  :form => today_task,
                                  :status => @status,
                                  :status_task_type => 'today',
-                                 :enable_destroy => false
+                                 :enable_destroy => !today_task.object.new_record? && today_task.index > 0
                               }
           %>
         <% end %>
