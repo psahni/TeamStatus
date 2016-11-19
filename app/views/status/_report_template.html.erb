@@ -10,15 +10,31 @@
       </tr>
     </thead>
     <tbody>
-      <%  @users_status.each do |users_status| %>
+      <% @today_statuses.each do |user, status| %>
         <tr>
-          <td class='small'><%=users_status.user.name%></td>
-          <td class='what-was-done-today'><%=simple_format(sanitize users_status.what_was_done_today, tags: %w(strong b em a))%></td>
-          <td class='plan-for-tomorrow'><%=simple_format(sanitize users_status.plan_for_tomorrow, tags:  %w(strong b em a)) %></td>
-          <td class='impediments'><%=users_status.impediments%></td>
-          <td class='small'><%=users_status.done == 1 ? "Yes" : "No"%></td>
-          <td class'small'>Done</td>
+          <td class='small'><%=user.name%></td>
+            <td class="pivotal-column">
+            <% status.today_tasks.each do |task| %>
+              <strong><%=task.name%></strong>
+              <%=formatted_description(task.description)%>
+            <% end %>
+          </td>
+          <td class="pivotal-column">
+            <% status.tomorrow_tasks.each do |task| %>
+              <strong><%=task.name%></strong>
+              <%=formatted_description(task.description)%>
+            <% end %>
+          </td>
+          <td>
+            <%=status.impediments%>
+          </td>
+          <td>
+            <%=status.done == true ? 'Done' : ''%>
+          </td>
+          <td>
+            <%=status.done == true ? 'Done' : ''%>
+          </td>
         </tr>
-        <% end %>
+      <% end %>
     </tbody>
   </table>

@@ -4,6 +4,7 @@ class UserNotifier < ApplicationMailer
 
     include SendGrid
     include MailarHelper
+    inclide StatusHelper
 
    def send_status(users_status)
      @users_status =  users_status

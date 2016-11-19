@@ -1,12 +1,14 @@
 
 table {
     border-collapse: collapse;    
-    font-family: monospace;
+    font-family: Georgia, serif;
     overflow: auto;
 }
 
 table, th, td {
-    border: 1px solid black;
+  border: 1px solid black;
+  text-align: center;
+  height: 30px;
 }
 
 table {
@@ -14,11 +16,17 @@ table {
 }
 
 .title, .small, .impediments{
-  width: 10%
+  // width: 10%
+}
+
+.pivotal-column{
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 10px
 }
 
 .what-was-done-today, .plan-for-tomorrow{
-    width: 40%;
+    width: 33%;
 }
 
 tr:nth-child(even) {background-color: #f5f5f5}

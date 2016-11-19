@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
 
   get '/all_status' => 'status#all_status'
+  get '/sr' => 'status#status_report'
 end

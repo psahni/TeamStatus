@@ -10,10 +10,13 @@ class Status < ActiveRecord::Base
   #
   # Associations
   #
-  has_many :tasks, :dependent => :destroy
+  has_many :tasks,
+           :dependent => :destroy
+
   has_many :today_tasks, -> { where('tasks.task_type = ?', Task::TASK_TYPES[:today]) },
            :class_name => 'Task',
            :dependent => :destroy
+
   has_many :tomorrow_tasks, -> { where('tasks.task_type = ?', Task::TASK_TYPES[:tomorrow]) },
            :class_name => 'Task',
            :dependent => :destroy
@@ -55,6 +58,17 @@ class Status < ActiveRecord::Base
     if @user
       self.user_id = @user.id
     end
+  end
+
+  def what_was_done_today(today_status)
+    today_status.today_tasks
+  end
+
+  def self.fetch_today_statuses
+    return Status.includes(:user, :tasks).inject({}){|today_statuses, status|
+      today_statuses[status.user] = status
+      today_statuses
+    }
   end
 
 end

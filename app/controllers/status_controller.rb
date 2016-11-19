@@ -36,10 +36,9 @@ class StatusController < ApplicationController
 
  def update
    @status = Status.find(params[:id])
-   #debugger
    if @status.update_attributes(status_params)
      flash[:success] = "Your status has been successfully updated."
-     redirect_to status_path(@status, :user => @status.user_email)
+     redirect_to status_path(@status)
    else
      render :action => :edit
    end
@@ -50,7 +49,7 @@ class StatusController < ApplicationController
  end
 
  def status_report
-   @users_status = Status.joins(:user).where("Date(statuses.created_at) = ?", Date.today)
+   @today_statuses = Status.fetch_today_statuses
    render :layout => 'report'
  end
 
