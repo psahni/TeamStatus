@@ -50,12 +50,12 @@ class StatusController < ApplicationController
 
  def status_report
    @today_statuses = Status.fetch_today_statuses
-   render :layout => 'report'
+   render :layout => false
  end
 
  def notify_status
-   @users_status = Status.joins(:user).where("Date(statuses.created_at) = ?", Date.today)
-   UserNotifier.send_status(@users_status).deliver
+   @today_statuses = Status.fetch_today_statuses
+   UserNotifier.send_status(@today_statuses).deliver
    render :text => "successfully sent!!"
  end
 

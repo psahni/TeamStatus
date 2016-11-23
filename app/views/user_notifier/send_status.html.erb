@@ -1,1 +1,6 @@
-<%=render :partial => 'status/report_template'%>
+<%=render :partial => 'status/report_template',
+          :locals => {
+            :today_statuses => @today_statuses,
+            :email_template => true
+          }
+%>
