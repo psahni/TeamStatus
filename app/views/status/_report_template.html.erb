@@ -18,10 +18,12 @@
       <tr style="background-color:<%= index % 2 !=0 ? '#f5f5f5' : 'white' %>">
         <td class="small" style="border: 1px solid black;text-align: center;height: 30px;width: 10%;"><%=user.name%></td>
         <td class="pivotal-column" style="border: 1px solid black;text-align: left;height: 30px;padding-left: 10px;padding-top: 10px;">
-          <% status.today_tasks.each do |task| %>
-            <strong><%=task.name%></strong>
-            <%=formatted_description(task.description)%>
-          <% end %>
+          <div style="margin-top:20px;margin-bottom: 20px;">
+            <% status.today_tasks.each do |task| %>
+              <strong><%=task.name%></strong>
+              <%=formatted_description(task.description)%>
+            <% end %>
+          </div>
         </td>
         <td class="pivotal-column" style="border: 1px solid black;text-align: left;height: 30px;padding-left: 10px;padding-top: 10px;">
           <% status.tomorrow_tasks.each do |task| %>

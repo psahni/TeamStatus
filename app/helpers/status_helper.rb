@@ -13,8 +13,13 @@ module StatusHelper
   end
 
   def formatted_description(description)
+    description = remove_invalid_chars(description)
     description = "-- " + description.split("\r\n").join("\n-- ")
     simple_format(description)
+  end
+
+  def remove_invalid_chars(content)
+    content.gsub(/-/, '')
   end
 
 end
