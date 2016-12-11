@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+$blue-color: #0275d8;
+
 body{
   padding-top: 50px;
   background-color: #F0;
@@ -17,6 +19,9 @@ a.major-link{
   text-decoration: underline;
 }
 
+ul li{
+  list-style-type: none;
+}
 
 .form-control{
     width:60%
@@ -119,4 +124,56 @@ label.control-label, .template label.main-label{
 
 .top-space{
   margin-top: 20px;
+}
+
+.email{
+  background-color: yellow;
+}
+.email:before{
+  content: '';
+  display: inline-block;
+  height: 20px;
+  vertical-align: middle;
+}
+
+
+.flash{
+  border: 1px solid black;
+  padding: 10px;
+  width: 80%;
+}
+
+.flash-error{
+  color: red;
+}
+
+.flash-success{
+  color: green;
+}
+
+.link-section{
+  position: absolute;
+  right: 40px;
+  top: 300px;
+  color: $blue-color;
+  cursor: pointer;
+  font-weight: 900;
+
+  .layout_link{
+    float: right;
+    font-size: 20px;
+  }
+
+  .layout_links{
+    font-size: 14px;
+    clear: both;
+  }
+
+  ul li{
+    list-style-type: disc;;
+  }
+}
+
+.layout_links{
+  display: none;
 }

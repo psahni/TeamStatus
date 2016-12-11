@@ -67,4 +67,11 @@ class Status < ActiveRecord::Base
     }
   end
 
+  def self.fetch_prev_day_statuses(diff=1)
+    return Status.includes(:user, :today_tasks, :tomorrow_tasks).where("Date(statuses.created_at) = ?", Date.today - diff).inject({}){|today_statuses, status|
+      today_statuses[status.user] = status
+      today_statuses
+    }
+  end
+
 end

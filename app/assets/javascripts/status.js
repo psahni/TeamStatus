@@ -30,8 +30,26 @@ removeTaskFields = function(){
   });
 };
 
+displayLinks = function() {
+
+  $('.layout_link').on('click', function(event){
+    event.stopPropagation();
+    $('.layout_links').toggle();
+  });
+
+  $('.layout_links').on('click', function(event){
+    event.stopPropagation();
+  });
+
+  $(document).on('click', function(event){
+    $('.layout_links').hide();
+  });
+
+},
+
+
 $(document).ready(function(){
   enableAddMore();
   removeTaskFields();
+  displayLinks();
 });
-

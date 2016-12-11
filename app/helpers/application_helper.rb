@@ -6,4 +6,12 @@ module ApplicationHelper
     end
   end
 
+  def layout_links
+    links = {
+      'Create Status'    => new_status_path,
+      'Status Report' => '/sr'
+    }
+    links.merge!('Edit Your Status' => edit_status_path(session[:status_id])) if session[:status_id]
+    links
+  end
 end

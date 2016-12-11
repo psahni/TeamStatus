@@ -1,16 +1,5 @@
-<%=render :partial => 'report_template', :locals => { :today_statuses => @today_statuses } %>
-
-<div class="" style="margin-top:20px;font-size:18px;">
-
-  <span>
-    <%#=link_to "Send Email", notify_status_status_index_path, :remote => true %>
-  </span>
-
-  <span>
-  </span>
-
-  <span class="" style='padding: 15px;'>
-    <%#=link_to "See all Statuses", "/all_status"%>
-  </span>
-
-</div>
+<%=render :partial => 'report_template',
+          :locals => {
+            :today_statuses => @today_statuses
+          }
+%>

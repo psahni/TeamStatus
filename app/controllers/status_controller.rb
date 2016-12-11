@@ -18,6 +18,7 @@ class StatusController < ApplicationController
   def create
     @status = Status.new(status_params)
     if @status.save
+      session[:status_id] = @status.id
       flash[:success] = "Your status has been successfully added."
       redirect_to status_path(@status, :user => @status.user.username )
     else
@@ -44,20 +45,37 @@ class StatusController < ApplicationController
    end
  end
 
- def all_status
+#-----------------------------------------------------------------------------------------
+
+  def all_status
    @users_status = Status.joins(:user).where("Date(statuses.created_at) = ?", Date.today)
- end
+  end
 
- def status_report
+  def status_report
+   params[:website_view] = true
    @today_statuses = Status.fetch_today_statuses
-   render :layout => false
- end
+  end
 
- def notify_status
+  def prev_status
+    diff = params[:diff].to_i
+    params[:website_view] = false
+    @today_statuses = Status.fetch_prev_day_statuses(diff)
+    render :template => 'status/status_report.html.erb'
+  end
+
+  def notify_status
+   params[:website_view] = false
    @today_statuses = Status.fetch_today_statuses
-   UserNotifier.send_status(@today_statuses).deliver
-   render :text => "successfully sent!!"
- end
+   @email_notification = EmailNotification.new(params[:email])
+     if @email_notification.valid?
+       #UserNotifier.send_status(@today_statuses).deliver
+       render :text => "successfully sent!!"
+    else
+      render :action => :status_report
+    end
+  end
+
+#---------------------------------------------------------------------------------------------
 
 # PRIVATE #
 

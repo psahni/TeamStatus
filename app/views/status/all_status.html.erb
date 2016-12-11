@@ -10,7 +10,9 @@
       <% end %>
   </div>
   <% else %>
-    Nobody has updated status yet.
+    <div class="flash flash-error">
+        <%=flash[:error] || "Nobody has updated status yet"%>
+    </div>
   <% end %>
 </div>
 <div class="margin-div"></div>
