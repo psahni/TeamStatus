@@ -1,6 +1,8 @@
 class UserNotifier < ApplicationMailer
 
-    default :from => "system@LogRhythmGlobalLogic.com"
+    default :from     => "Lime Team <system@LogRhythmGlobalLogic.com>",
+            :reply_to => "Logrhythm-LimeTeam <Logrhythm-LimeTeam@globallogic.com>"
+
     layout 'report'
 
     include SendGrid
@@ -9,7 +11,10 @@ class UserNotifier < ApplicationMailer
 
    def send_status(today_statuses)
      @today_statuses =  today_statuses
-     mail(:to => 'prashant.sahni5@gmail.com') do |format|
+     mail(
+        :to => 'prashant.sahni5@gmail.com',
+        :subject => "Lime Team Status #{ Time.now.strftime("%dth %B %Y") }"
+     ) do |format|
        format.html{
          render :template =>'user_notifier/send_status.html.erb'
        }

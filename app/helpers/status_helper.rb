@@ -22,7 +22,4 @@ module StatusHelper
     content.gsub(/-/, '')
   end
 
-  def website_view?
-    return !!params[:website_view]
-  end
 end

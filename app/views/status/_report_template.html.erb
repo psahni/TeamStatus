@@ -16,8 +16,8 @@
     <% today_statuses.keys.each_with_index do |user, index| %>
       <% status = today_statuses[user] %>
       <tr style="background-color:<%= index % 2 !=0 ? '#f5f5f5' : 'white' %>">
-        <td class="small" style="border: 1px solid black;text-align: center;height: 30px;width: 10%;">
-          <%=website_view? ? (link_to user.name, edit_status_path(status.id)) : user.name%>
+        <td class="small" style="border: 1px solid black;text-align: center;height: 30px;width: 15%;">
+          <%=is_website_view ? (link_to user.name, edit_status_path(status.id)) : user.name%>
         </td>
         <td class="pivotal-column" style="border: 1px solid black;text-align: left;height: 30px;padding-left: 10px;padding-top: 10px;">
           <% status.today_tasks.each do |task| %>
@@ -46,29 +46,4 @@
     <% end %>
     </tbody>
   </table>
-</div>
-
-<!--
-  Email Notify form
--->
-
-<div class="form-email margin-div">
-  <h3>Send Email</h3>
-  <% if @email_notification %>
-    <span class='error'>
-      <%= "Email "  + @email_notification.errors.messages[:email][0] unless @email_notification.errors.messages[:email].blank? %>
-    </span>
-  <% end %>
-  <%=%>
-  <%= form_tag notify_status_status_index_path do %>
-    <div class="form-group">
-      <%=text_field_tag "email", '',
-                        :class => 'form-control email',
-                        :placeholder => "Put email"
-      %>
-    </div>
-    <div class="form-group">
-      <%=button_tag 'Submit'%>
-    </div>
-  <% end %>
 </div>

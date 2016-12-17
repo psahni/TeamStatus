@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -47,4 +47,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sendgrid'
 gem 'rest-client'
-gem 'therubyracer'
+
+if not (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM)
+  gem 'therubyracer'
+end

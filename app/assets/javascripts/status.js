@@ -47,9 +47,20 @@ displayLinks = function() {
 
 },
 
+autoGrowTextArea = function(){
+  $('.description-field').on('keydown', function(e){
+    var that = $(this);
+    if (that.scrollTop()) {
+        $(this).height(function(i,h){
+            return h + 20;
+        });
+    }
+  });
+};
 
 $(document).ready(function(){
   enableAddMore();
   removeTaskFields();
   displayLinks();
+  //autoGrowTextArea();
 });

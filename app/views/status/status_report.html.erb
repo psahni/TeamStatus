@@ -1,5 +1,8 @@
 <%=render :partial => 'report_template',
           :locals => {
-            :today_statuses => @today_statuses
+            :today_statuses => @today_statuses,
+            :is_website_view => true
           }
 %>
+
+<%=render :partial => "form_for_email"%>

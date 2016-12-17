@@ -51,10 +51,14 @@ class StatusController < ApplicationController
    @users_status = Status.joins(:user).where("Date(statuses.created_at) = ?", Date.today)
   end
 
+#-----------------------------------------------------------------------------------------
+
   def status_report
    params[:website_view] = true
    @today_statuses = Status.fetch_today_statuses
   end
+
+#-----------------------------------------------------------------------------------------
 
   def prev_status
     diff = params[:diff].to_i
@@ -63,12 +67,14 @@ class StatusController < ApplicationController
     render :template => 'status/status_report.html.erb'
   end
 
+#-----------------------------------------------------------------------------------------
+
   def notify_status
    params[:website_view] = false
    @today_statuses = Status.fetch_today_statuses
    @email_notification = EmailNotification.new(params[:email])
      if @email_notification.valid?
-       #UserNotifier.send_status(@today_statuses).deliver
+       UserNotifier.send_status(@today_statuses).deliver
        render :text => "successfully sent!!"
     else
       render :action => :status_report

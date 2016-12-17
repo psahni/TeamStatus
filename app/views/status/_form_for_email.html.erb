@@ -1,0 +1,25 @@
+<!--
+  Email Notify form
+-->
+
+<div class="form-email margin-div">
+  <h3>Send Email</h3>
+  <% if @email_notification %>
+    <span class='error'>
+      <%=
+          "Email "  + @email_notification.errors.messages[:email][0] unless @email_notification.errors.messages[:email].blank?
+      %>
+    </span>
+  <% end %>
+  <%= form_tag notify_status_status_index_path do %>
+    <div class="form-group">
+      <%=text_field_tag "email", '',
+                        :class => 'form-control email',
+                        :placeholder => "Put email"
+      %>
+    </div>
+    <div class="form-group">
+      <%=button_tag 'Submit'%>
+    </div>
+  <% end %>
+</div>
