@@ -42,9 +42,15 @@
     </div>
   </div>
   <div class="col-md-12 top-space">
-    <label class="main-label col-md-5">Done and Updated</label>
+    <label class="main-label col-md-5">Done</label>
     <div class="col-md-12">
       <%=@status.done == true ? 'Yes' : 'No'%>
+    </div>
+  </div>
+  <div class="col-md-12 top-space">
+    <label class="main-label col-md-5">Rally Updated</label>
+    <div class="col-md-12">
+      <%=@status.tracker_updated == true ? 'Yes' : 'No'%>
     </div>
   </div>
 </div>

@@ -38,11 +38,12 @@ class Status < ActiveRecord::Base
   # Validations
   #
   validate :email_of_associated_user, :if => lambda {|status| status.new_record?}
-
+  validate :status_already_added_for_today, :if => lambda {|status| status.new_record?}
   #
   # Callbacks
   #
   before_create :associate_user
+
 
   def user_email
     user.try(:email) || @user_email
@@ -51,6 +52,13 @@ class Status < ActiveRecord::Base
   def email_of_associated_user
     @user = User.where(email: user_email).first
     self.errors.add(:user_email, "No associated user found in the database with provided email") if @user.blank?
+  end
+
+  def status_already_added_for_today
+    user_emails = Status.where("Date(created_at) = ? and user_id IS NOT NULL", Date.today).collect{|status| status.user.email}
+    if user_emails.include?(user_email)
+      self.errors.add(:user_email, "Status with this user has already been created")
+    end
   end
 
 

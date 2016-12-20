@@ -20,7 +20,7 @@ class StatusController < ApplicationController
     if @status.save
       session[:status_id] = @status.id
       flash[:success] = "Your status has been successfully added."
-      redirect_to status_path(@status, :user => @status.user.username )
+      redirect_to status_path(@status)
     else
       render :action => :new
     end
@@ -91,6 +91,7 @@ class StatusController < ApplicationController
     params.require(:status).permit(:user_email,
                                    :impediments,
                                    :done,
+                                   :tracker_updated,
                                    :today_tasks_attributes    => [:id, :name, :description, :task_type, :_destroy],
                                    :tomorrow_tasks_attributes => [:id, :name, :description, :task_type, :_destroy]
     )
