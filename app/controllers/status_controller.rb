@@ -58,6 +58,9 @@ end
 
   def status_report
    @today_statuses = Status.fetch_today_statuses
+   if params[:email_view] == '1'
+     render :template => 'status/status_report_email.html.erb'
+   end
   end
 
 #-----------------------------------------------------------------------------------------
