@@ -9,10 +9,10 @@ class UserNotifier < ApplicationMailer
     include MailarHelper
     add_template_helper(StatusHelper)
 
-   def send_status(today_statuses)
+   def send_status(today_statuses, user_email)
      @today_statuses =  today_statuses
      mail(
-        :to => 'prashant.sahni5@gmail.com',
+        :to => user_email,
         :subject => "Lime Team Status #{ Time.now.strftime("%dth %B %Y") }"
      ) do |format|
        format.html{

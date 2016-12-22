@@ -34,12 +34,15 @@
         <td style="border: 1px solid black;text-align: center;height: 30px;">
           <%=status.impediments%>
         </td>
-        <% unless defined?(email_template) %>
+        <% if is_website_view %>
           <td style="border: 1px solid black;text-align: center;height: 30px;">
             <%=status.done == true ? 'Done' : ''%>
           </td>
           <td style="border: 1px solid black;text-align: center;height: 30px;">
             <%=status.tracker_updated == true ? 'Done' : ''%>
+          </td>
+          <td style="border: 1px solid black;text-align: center;height: 30px;">
+            <%=link_to "Delete", status_path(status), :method => :delete%>
           </td>
         <% end %>
       </tr>

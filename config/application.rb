@@ -30,7 +30,7 @@ module TeamStatus
       :port                 => 587,
       :domain               => "globallogic.com",
       :user_name            => "prashantkumar.sahni@globallogic.com",
-      :password             => "",
+      :password             => "ErdFcv#123#",
       :authentication       => 'plain'
     }
 

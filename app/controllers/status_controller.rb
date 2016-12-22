@@ -2,18 +2,15 @@ class StatusController < ApplicationController
 
   #skip_before_filter :verify_authenticity_token, :only => [:notify_status]
 
-
   def index
     redirect_to all_status_status_index_path
   end
-
 
   def new
     @status = Status.new
     @status.today_tasks.build
     @status.tomorrow_tasks.build
   end
-
 
   def create
     @status = Status.new(status_params)
@@ -30,7 +27,6 @@ class StatusController < ApplicationController
     @status = Status.find(params[:id])
   end
 
-
  def edit
    @status = Status.find(params[:id])
  end
@@ -45,6 +41,13 @@ class StatusController < ApplicationController
    end
  end
 
+def destroy
+  @status = Status.find(params[:id])
+  if @status.destroy
+    redirect_to status_report_status_path
+  end
+end
+
 #-----------------------------------------------------------------------------------------
 
   def all_status
@@ -54,7 +57,6 @@ class StatusController < ApplicationController
 #-----------------------------------------------------------------------------------------
 
   def status_report
-   params[:website_view] = true
    @today_statuses = Status.fetch_today_statuses
   end
 
@@ -62,7 +64,6 @@ class StatusController < ApplicationController
 
   def prev_status
     diff = params[:diff].to_i
-    params[:website_view] = false
     @today_statuses = Status.fetch_prev_day_statuses(diff)
     render :template => 'status/status_report.html.erb'
   end
@@ -70,12 +71,11 @@ class StatusController < ApplicationController
 #-----------------------------------------------------------------------------------------
 
   def notify_status
-   params[:website_view] = false
    @today_statuses = Status.fetch_today_statuses
    @email_notification = EmailNotification.new(params[:email])
      if @email_notification.valid?
-       UserNotifier.send_status(@today_statuses).deliver
-       render :text => "successfully sent!!"
+       UserNotifier.send_status(@today_statuses,  @email_notification.email).deliver
+       redirect_to status_report_status_index_path
     else
       render :action => :status_report
     end

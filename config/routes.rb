@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   get '/all_status' => 'status#all_status'
   get '/sr' => 'status#status_report'
-  get '/status/prev/:diff' => 'status#prev_status'
+  get '/status/prev/:diff' => 'status#prev_status', :as => :previous_status
 
 #-----------------------------------------------------------------
 
