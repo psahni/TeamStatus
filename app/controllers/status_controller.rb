@@ -44,7 +44,7 @@ class StatusController < ApplicationController
 def destroy
   @status = Status.find(params[:id])
   if @status.destroy
-    redirect_to status_report_status_path
+    redirect_to status_report_status_index_path
   end
 end
 
