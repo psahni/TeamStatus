@@ -1,11 +1,19 @@
 <div class="clearfix">
+  <% unless is_website_view %>
+    <div class="">
+      <p>
+        Hello Team, <br/>
+        Following is our status for today:-
+      </p>
+    </div>
+  <% end %>
   <table class="table table-striped" style="border: 1px solid black;border-style: collapse;border-collapse: collapse;font-family: Helvetica, Arial, Sans-Serif;overflow: auto;width: 100%;text-align: center;height: 30px;">
     <thead>
     <tr style="background-color: rgb(153,153,153)">
-      <th style="border: 1px solid black;text-align: center;height: 30px;">Name</th>
-      <th style="border: 1px solid black;text-align: center;height: 30px;">What was done today</th>
-      <th style="border: 1px solid black;text-align: center;height: 30px;">Plan for tomorrow</th>
-      <th style="border: 1px solid black;text-align: center;height: 30px;">impediments</th>
+      <th style="border: 1px solid black;text-align: center;height: 30px;width:15%;vertical-align:middle">Name</th>
+      <th style="border: 1px solid black;text-align: center;height: 30px;width:35%;vertical-align:middle">What was done today</th>
+      <th style="border: 1px solid black;text-align: center;height: 30px;width:35%;vertical-align:middle">Plan for tomorrow</th>
+      <th style="border: 1px solid black;text-align: center;height: 30px;width:10%;vertical-align:middle">impediments</th>
       <% if is_website_view %>
         <th style="border: 1px solid black;text-align: center;height: 30px;">Done</th>
         <th style="border: 1px solid black;text-align: center;height: 30px;">Rally Updated?</th>
@@ -19,25 +27,26 @@
         <td class="small" style="border: 1px solid black;text-align: center;height: 30px;width: 15%;">
           <%=is_website_view ? (link_to user.name, edit_status_path(status.id)) : user.name%>
         </td>
-        <td class="pivotal-column" style="border: 1px solid black;text-align: left;height: 30px;padding-left: 10px;padding-top: 10px;">
+        <td class="pivotal-column" style="border: 1px solid black;text-align:left;height:30px;padding-top:10px;padding-bottom:10px;width:30%">
           <% status.today_tasks.each do |task| %>
-            <strong><%=task.name%></strong>
-            <%=formatted_description(task.description)%>
+            <div style="margin: 10px 5px 5px 5px;">
+              <strong><%=task.name%></strong>
+              <%=formatted_description(task.description)%>
+            </div>
           <% end %>
         </td>
-        <td class="pivotal-column" style="border: 1px solid black;text-align: left;height: 30px;padding-left: 10px;padding-top: 10px;">
+        <td class="pivotal-column" style="border: 1px solid black;text-align:left;height:30px;padding-top:10px;padding-bottom:10px;width:30%">
           <% status.tomorrow_tasks.each do |task| %>
-            <strong><%=task.name%></strong>
-            <%=formatted_description(task.description)%>
+            <div style="margin: 10px 5px 5px 5px;">
+              <strong><%=task.name%></strong>
+              <%=formatted_description(task.description)%>
+            </div>
           <% end %>
         </td>
-        <td style="border: 1px solid black;text-align: center;height: 30px;">
+        <td style="border: 1px solid black;text-align: center;height: 30px;width:20%">
           <%=status.impediments%>
         </td>
         <% if is_website_view %>
-          <td style="border: 1px solid black;text-align: center;height: 30px;">
-            <%=status.done == true ? 'Done' : ''%>
-          </td>
           <td style="border: 1px solid black;text-align: center;height: 30px;">
             <%=status.tracker_updated == true ? 'Done' : ''%>
           </td>
@@ -49,4 +58,12 @@
     <% end %>
     </tbody>
   </table>
+  <% unless is_website_view %>
+    <div class="">
+      <p>
+        Regards, <br/>
+        Logrhythm Lime Team
+      </p>
+    </div>
+  <% end %>
 </div>

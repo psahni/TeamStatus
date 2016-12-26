@@ -16,7 +16,7 @@ module StatusHelper
     return if description.blank?
     description = remove_invalid_chars(description)
     description = "-- " + description.split("\r\n").join("\n-- ")
-    simple_format(description)
+    simple_format(description, {}, :wrapper_tag => "div")
   end
 
   def remove_invalid_chars(content)
