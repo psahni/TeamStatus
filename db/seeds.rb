@@ -8,20 +8,25 @@
 
 USERS =
   {
-    'Adwitiya' =>       {:email => 'adwitiya.prabhakar@globallogic.com',  :username => 'adwitiya.prabhakar' },
-    'Diljohn'  =>       {:email => 'diljohn.singh@globallogic.com',       :username => 'diljohn.singh' },
-    'Pankaj'   =>       {:email => 'pankaj.upadhyay@globallogic.com',     :username => 'pankaj.upadhyay' },
-    'Prashant Goel'  => {:email => 'prashant.goel@globallogic.com',       :username => 'prashant.goel' },
-    'Prashant Sahni' => {:email => 'prashantkumar.sahni@globallogic.com', :username => 'prashant.sahni' },
-    'Madhuri' =>        {:email => 'madhuri.rawat@globallogic.com',       :username => 'madhuri.rawat' },
-    'Rani'    =>        {:email => 'rani.agrawal@globallogic.com',        :username => 'rani.agrawal'},
-    'Priyanka' =>       {:email => 'priyanka.dudeja1@globallogic.com',    :username => 'priyanka.dudeja1' },
-    'Ashish'   =>       {:email => 'a.shrivastav@globallogic.com',        :username => 'ashish.shrivastav'},
-    'Kashish'  =>       {:email => 'kashish.kumar@globallogic.com',       :username => 'kashish.kumar'},
-    'Isha'    =>        {:email => 'isha.mahajan@globallogic.com',        :username => 'isha.mahajan'}
+    'Adwitiya' =>       {:email => 'adwitiya.prabhakar@globallogic.com',  :username => 'adwitiya.prabhakar', :sorder => 1 },
+    'Ashish'   =>       {:email => 'a.shrivastav@globallogic.com',        :username => 'ashish.shrivastav',  :sorder => 2 },
+    'Isha'    =>        {:email => 'isha.mahajan@globallogic.com',        :username => 'isha.mahajan',      :sorder => 3  },
+    'Kashish'  =>       {:email => 'kashish.kumar@globallogic.com',       :username => 'kashish.kumar',     :sorder => 4  },
+    'Diljohn'  =>       {:email => 'diljohn.singh@globallogic.com',       :username => 'diljohn.singh',     :sorder => 5  },
+    'Pankaj'   =>       {:email => 'pankaj.upadhyay@globallogic.com',     :username => 'pankaj.upadhyay',   :sorder => 6  },
+    'Prashant Goel'  => {:email => 'prashant.goel@globallogic.com',       :username => 'prashant.goel',     :sorder => 7  },
+    'Prashant Sahni' => {:email => 'prashantkumar.sahni@globallogic.com', :username => 'prashant.sahni',    :sorder => 8  },
+    'Madhuri' =>        {:email => 'madhuri.rawat@globallogic.com',       :username => 'madhuri.rawat' ,    :sorder => 9  },
+    'Rani'    =>        {:email => 'rani.agrawal@globallogic.com',        :username => 'rani.agrawal',      :sorder => 10 },
+    'Priyanka' =>       {:email => 'priyanka.dudeja1@globallogic.com',    :username => 'priyanka.dudeja1',  :sorder => 11 },
+    'Ankur Verma' =>    {:email => 'ankur.verma1@globallogic.com',        :username => 'ankur.verma',       :sorder => 12 }
   }
 
 USERS.each do |name, user_info|
-  puts "=> Creating #{user_info[:name]} with #{user_info[:email]}"
-  User.create!(:name => name, :email => user_info[:email], :username => user_info[:username])
+  if User.where(:email => user_info[:email]).first
+    puts "=> Already added #{user_info[:name]} with #{user_info[:email]}"
+  else
+    puts "Adding #{user_info[:name]} with #{user_info[:email]}"
+    User.create!(:name => name, :email => user_info[:email], :username => user_info[:username], :sorder => user_info[:sorder])
+  end
 end
