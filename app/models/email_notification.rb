@@ -9,7 +9,7 @@ class EmailNotification
 
 
   validates :email,
-            format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+            format: { with: /[^@\s]+@([a-z]+)\.(?:([a-z0-9]+))/ }
 
   def initialize(email)
     @email = email
