@@ -1,6 +1,14 @@
 <% if @today_statuses.blank? %>
   <h2>No info available</h2>
 <% else %>
+  <div class="">
+    <h3>
+      Users who have not updated their status:
+    </h3>
+    <p>
+      <%=@users_not_updated_status.collect(&:name).join(', ')%>
+    </p>
+  </div>
   <%=render :partial => 'report_template',
             :locals => {
               :today_statuses => @today_statuses,
