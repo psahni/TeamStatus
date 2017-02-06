@@ -58,6 +58,7 @@ end
 
   def status_report
    @today_statuses = Status.fetch_today_statuses
+   @users_not_updated_status = User.find_who_have_not_updated_status
    if params[:email_view] == '1'
      render :template => 'status/status_report_email.html.erb'
    end
