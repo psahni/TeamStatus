@@ -1,7 +1,7 @@
 <% if @today_statuses.blank? %>
   <h2>No info available</h2>
 <% else %>
-  <% if @users_not_updated_status.any? %>
+  <% if @users_not_updated_status && @users_not_updated_status.any? %>
     <div>
       <h3>Users who have not updated their status:</h3>
       <p>
