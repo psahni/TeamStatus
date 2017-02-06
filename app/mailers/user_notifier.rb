@@ -1,7 +1,8 @@
 class UserNotifier < ApplicationMailer
 
-    default :from     => "Lime Team <system@LogRhythmGlobalLogic.com>",
-            :reply_to => "Logrhythm-LimeTeam <Logrhythm-LimeTeam@globallogic.com>"
+    default :from => "Lime Team <system@LogRhythmGlobalLogic.com>",
+            :cc   => "Logrhythm-LimeTeam@globallogic.com",
+            :reply_to => "Logrhythm-LimeTeam <Logrhythm-LimeTeam@globallogic.com>, LimeEngTeam@logrhythm.com"
 
     layout 'report'
 
