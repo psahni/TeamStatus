@@ -79,6 +79,7 @@ end
    @email_notification = EmailNotification.new(params[:email])
      if @email_notification.valid?
        UserNotifier.send_status(@today_statuses,  @email_notification.email).deliver
+       flash[:success] = "Status has been successfully sent"
        redirect_to status_report_status_index_path
     else
       render :action => :status_report
