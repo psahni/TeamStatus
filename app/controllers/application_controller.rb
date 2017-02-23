@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
   def development_enviroment?
     ['development', 'test'].include?(Rails.env)
   end
+
+  helper_method :email_view?
+  def email_view?
+    params[:email_view] == '1'
+  end
+
 end
