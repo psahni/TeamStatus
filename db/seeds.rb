@@ -8,14 +8,13 @@
 
 USERS =
   {
-    'Adwitiya' =>       {:email => 'adwitiya.prabhakar@globallogic.com',  :username => 'adwitiya.prabhakar', :sorder => 1 },
+    'Smita'    =>       {:email => 'smita.batra@globallogic.com',         :username => 'smita.batra',        :sorder => 1 },
     'Ashish'   =>       {:email => 'a.shrivastav@globallogic.com',        :username => 'ashish.shrivastav',  :sorder => 2 },
     'Isha'    =>        {:email => 'isha.mahajan@globallogic.com',        :username => 'isha.mahajan',      :sorder => 3  },
-    'Kashish'  =>       {:email => 'kashish.kumar@globallogic.com',       :username => 'kashish.kumar',     :sorder => 4  },
     'Diljohn'  =>       {:email => 'diljohn.singh@globallogic.com',       :username => 'diljohn.singh',     :sorder => 5  },
     'Pankaj'   =>       {:email => 'pankaj.upadhyay@globallogic.com',     :username => 'pankaj.upadhyay',   :sorder => 6  },
-    'Prashant Goel'  => {:email => 'prashant.goel@globallogic.com',       :username => 'prashant.goel',     :sorder => 7  },
-    'Prashant Sahni' => {:email => 'prashantkumar.sahni@globallogic.com', :username => 'prashant.sahni',    :sorder => 8  },
+    'Prashant Sahni' => {:email => 'prashantkumar.sahni@globallogic.com', :username => 'prashant.sahni',    :sorder => 7  },
+    'Shuaib'   =>       {:email => 'shuaib.anwar@globallogic.com',        :username => 'shuaib.anwar',      :sorder => 8  },
     'Madhuri' =>        {:email => 'madhuri.rawat@globallogic.com',       :username => 'madhuri.rawat' ,    :sorder => 9  },
     'Rani'    =>        {:email => 'rani.agrawal@globallogic.com',        :username => 'rani.agrawal',      :sorder => 10 },
     'Priyanka' =>       {:email => 'priyanka.dudeja1@globallogic.com',    :username => 'priyanka.dudeja1',  :sorder => 11 },

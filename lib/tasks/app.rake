@@ -16,14 +16,13 @@ namespace :db do
   task :add_order_to_users => :environment do
     USERS =
       {
-        'Adwitiya' =>       {:email => 'adwitiya.prabhakar@globallogic.com',  :username => 'adwitiya.prabhakar', :sorder => 1 },
+        'Smita'    =>       {:email => 'smita.batra@globallogic.com',         :username => 'smita.batra',        :sorder => 1 },
         'Ashish'   =>       {:email => 'a.shrivastav@globallogic.com',        :username => 'ashish.shrivastav',  :sorder => 2 },
         'Isha'    =>        {:email => 'isha.mahajan@globallogic.com',        :username => 'isha.mahajan',      :sorder => 3  },
-        'Kashish'  =>       {:email => 'kashish.kumar@globallogic.com',       :username => 'kashish.kumar',     :sorder => 4  },
         'Diljohn'  =>       {:email => 'diljohn.singh@globallogic.com',       :username => 'diljohn.singh',     :sorder => 5  },
         'Pankaj'   =>       {:email => 'pankaj.upadhyay@globallogic.com',     :username => 'pankaj.upadhyay',   :sorder => 6  },
-        'Prashant Goel'  => {:email => 'prashant.goel@globallogic.com',       :username => 'prashant.goel',     :sorder => 7  },
-        'Prashant Sahni' => {:email => 'prashantkumar.sahni@globallogic.com', :username => 'prashant.sahni',    :sorder => 8  },
+        'Prashant Sahni' => {:email => 'prashantkumar.sahni@globallogic.com', :username => 'prashant.sahni',    :sorder => 7  },
+        'Shuaib'   =>       {:email => 'shuaib.anwar@globallogic.com',        :username => 'shuaib.anwar',      :sorder => 8  },
         'Madhuri' =>        {:email => 'madhuri.rawat@globallogic.com',       :username => 'madhuri.rawat' ,    :sorder => 9  },
         'Rani'    =>        {:email => 'rani.agrawal@globallogic.com',        :username => 'rani.agrawal',      :sorder => 10 },
         'Priyanka' =>       {:email => 'priyanka.dudeja1@globallogic.com',    :username => 'priyanka.dudeja1',  :sorder => 11 }
@@ -35,5 +34,23 @@ namespace :db do
       print "#{ user_name } =>  #{ user.sorder }\n"
     end
   end
+
+  task :disable_users => :environment  do
+    disable_users = ['adwitiya.prabhakar', 'prashant.goel', 'kashish.kumar']
+
+    disable_users.each do |_username|
+      user = User.where(:username => _username).first
+      user.is_disabled = true
+      user.sorder = -1000
+      user.save!
+      print "#{ user.username } is disabled\n"
+    end
+  end
+
+  task :add_new_user => :environment do
+
+  end
+
+
 
 end
