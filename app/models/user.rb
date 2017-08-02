@@ -8,12 +8,16 @@ class User < ActiveRecord::Base
 
 
   def self.find_who_have_not_updated_status
-    users_with_status.select{|user| user.status_id.blank?}
+    users_with_status.select{|user| user.is_enabled && user.status_id.blank?}
   end
 
   def self.users_with_status
     User.joins("LEFT OUTER JOIN statuses ON users.id = statuses.user_id AND Date(statuses.created_at) = '#{ Date.today.strftime('%Y-%m-%d') }'")
-    .select("users.id, users.name, statuses.id as status_id")
+    .select("users.id, users.name, users.is_disabled, statuses.id as status_id")
+  end
+
+  def is_enabled
+    !is_disabled
   end
 
 

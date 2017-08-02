@@ -47,8 +47,9 @@ namespace :db do
     end
   end
 
-  task :add_new_user => :environment do
-
+  task :seed_updates => :environment do
+    p User.last.is_disabled
+    User.update_all('is_disabled = 0')
   end
 
 
