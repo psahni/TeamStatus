@@ -1,0 +1,33 @@
+<table class="table table-striped"
+style="width: <%=is_website_view ? '100%' : '85%'%>;border: 1px solid black;border-collapse:collapse;font-size:13px;font-family: Arial, Sans-Serif;overflow:auto;table-layout:fixed;text-align:center;height: 30px;">
+  <thead>
+    <tr style="font-size:13px;background-color: #3E65CF">
+      <th style="color:white;border: 1px solid black;text-align: center;height: 30px;width:8%;vertical-align:middle">Feature#</th>
+      <th style="color:white;border: 1px solid black;text-align: center;height: 30px;width:18%;vertical-align:middle">
+        Feature Planned In Current Iteration
+      </th>
+      <th style="color:white;border: 1px solid black;text-align: center;height: 30px;width:8%;vertical-align:middle">Status</th>
+      <th style="color:white;border: 1px solid black;text-align: center;height: 30px;width:6%;vertical-align:middle">PRD</th>
+      <th style="color:white;border: 1px solid black;text-align: center;height: 30px;width:6%;vertical-align:middle">UX</th>
+      <th style="color:white;border: 1px solid black;text-align: center;height: 30px;width:15%;vertical-align:middle">Notes/Dependency if any</th>
+      <% if is_website_view %>
+        <th style="color:white;border: 1px solid black;text-align: center;height: 30px;width:15%;vertical-align:middle"></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% risk_documents.each do |rd|%>
+      <tr style="font-size:13px;background-color: #F8F8F8">
+        <td style="word-wrap:break-word;border: 1px solid black;text-align: center;height: 30px;width: 8%;"><%=rd.feature_id!='0' ? (link_to(rd.feature_id, rd.feature_link, :target => :blank)) : ''%></td>
+        <td style="word-wrap:break-word;border: 1px solid black;text-align: center;height: 30px;width: 8%;"><%=rd.feature_name%></td>
+        <td style="word-wrap:break-word;border: 1px solid black;text-align: center;height: 30px;width: 8%;"><%=rd.status%></td>
+        <td style="word-wrap:break-word;border: 1px solid black;text-align: center;height: 30px;width: 8%;"><%=rd.feature_id!='0' ? (rd.prd ? 'Yes' : 'No') : ''%></td>
+        <td style="word-wrap:break-word;border: 1px solid black;text-align: center;height: 30px;width: 8%;"><%=rd.feature_id!='0' ? (rd.ux ? 'Yes' : 'No') : ''%></td>
+        <td style="word-wrap:break-word;border: 1px solid black;text-align: center;height: 30px;width: 8%;"><%=rd.notes%></td>
+        <% if is_website_view %>
+          <td style="word-wrap:break-word;border: 1px solid black;text-align: center;height: 30px;width: 8%;"><%=link_to 'Edit', edit_risk_sheet_utility_index_path(:document_id => rd.id)%></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -12,7 +12,7 @@ module ApplicationHelper
       'Status Report' => '/sr',
       'Previous Day Status' => previous_status_path(:diff => 1),
       'Create Risk Sheet' => edit_risk_sheet_utility_index_path,
-      'Update Risk Sheet' => ''
+      'Update Risk Sheet' => risk_document_utility_index_path
     }
     links.merge!('Edit Your Status' => edit_status_path(session[:status_id])) if session[:status_id].present?
     links

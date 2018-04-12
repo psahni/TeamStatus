@@ -7,6 +7,7 @@
       </p>
     </div>
   <% end %>
+  <%=render :partial => 'utility/risk_documents', :locals => {:risk_documents => risk_documents, :is_website_view => false }%>
   <table class="table table-striped"
          style="width: <%=is_website_view ? '100%' : '85%'%>;border: 1px solid black;border-collapse:collapse;font-size:13px;font-family: Arial, Sans-Serif;overflow:auto;table-layout:fixed;text-align: center;height: 30px;">
     <thead>

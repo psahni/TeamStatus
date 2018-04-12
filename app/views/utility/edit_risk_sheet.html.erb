@@ -1,26 +1,43 @@
 <div class='template no-gutter'>
   <h4>Create Risk Sheet</h4>
   <div class="form m-t-10">
-    <%=form_for @risk_document, :url => create_risk_sheet_utility_index_path do |form| %>
+    <%=form_for @risk_document,
+      :url => (@risk_document.new_record? ? create_risk_sheet_utility_index_path : update_risk_sheet_utility_index_path(:document_id => @risk_document.id)),
+      :method => ( @risk_document.new_record? ? :post : :put) do |form| %>
       <div class="form-group">
         <label class='form-label'>Feature Id</label>
         <%=form.text_field :feature_id%>
+        <span class='error'>
+          <%=@risk_document.errors[:feature_id][0] if @risk_document.errors[:feature_id]%>
+        </span>
       </div>
       <div class="form-group">
         <label class='form-label'>Feature Link</label>
         <%=form.text_field :feature_link%>
+        <span class='error'>
+          <%=@risk_document.errors[:feature_link][0] if @risk_document.errors[:feature_link]%>
+        </span>
       </div>
       <div class="form-group">
         <label class='form-label'>Feature Name</label>
         <%=form.text_field :feature_name%>
+        <span class='error'>
+          <%=@risk_document.errors[:feature_name][0] if @risk_document.errors[:feature_name]%>
+        </span>
       </div>
       <div class="form-group">
         <label class='form-label'>Current Status</label>
         <%=form.text_field :status%>
+        <span class='error'>
+          <%=@risk_document.errors[:status][0] if @risk_document.errors[:status]%>
+        </span>
       </div>
       <div class="form-group">
         <label class='form-label'>Iteration</label>
-        <%=form.text_field :iteration%> * Type only 1 for i1
+        <%=form.text_field :iteration, :placeholder => 'Type only 1 for i1'%>
+        <span class='error'>
+          <%=@risk_document.errors[:iteration][0] if @risk_document.errors[:iteration]%>
+        </span>
       </div
       <div class="form-group">
         <label class='form-label'>PRD</label>
