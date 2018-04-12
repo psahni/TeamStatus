@@ -186,3 +186,34 @@ label.control-label, .template label.main-label{
 .tomorrow_tasks .control-label {
   color: green;
 }
+
+.form-label {
+  width: 8em;
+}
+
+.m-t-5 {
+  margin-top: 5px;
+}
+
+
+.m-t-10 {
+  margin-top: 10px;
+}
+
+.form input[type='text'], textarea {
+  width: 50%;
+}
+
+textarea {
+  vertical-align: middle
+}
+
+.button {
+  color: #233FBF;
+  font-size: 15px;
+  border: 2px solid #f2f2f2;
+  line-height: 2;
+  padding: 5px;
+  border-radius: 7px;
+  width: 10%;
+}

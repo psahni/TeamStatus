@@ -15,6 +15,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :utility  do
+    collection do
+      get  :edit_risk_sheet
+      post :create_risk_sheet
+      put  :update_risk_sheet
+    end
+  end
 #-----------------------------------------------------------------
 # Custom Routes
 #-----------------------------------------------------------------

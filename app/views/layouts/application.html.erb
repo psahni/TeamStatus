@@ -7,21 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container clearfix">
-    <div class="link-section">
-      <span class='layout_link' style="display:<%=email_view? ? 'none;' : 'block;'%>"> << </span>
-      <div class="layout_links">
-        <ul>
-          <% layout_links.each do |link_title, link_value| %>
-            <li>
-              <a href="<%=link_value%>">
-                <%=link_title%>
-              </a>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+  <div class="link-section">
+    <span class='layout_link' style="display:<%=email_view? ? 'none;' : 'block;'%>">
+      <img src='/assets/m2.png' alt='Menu' width='45' height='40' />
+    </span>
+    <div class="layout_links">
+      <ul>
+        <% layout_links.each do |link_title, link_value| %>
+          <li>
+            <a href="<%=link_value%>">
+              <%=link_title%>
+            </a>
+          </li>
+        <% end %>
+      </ul>
     </div>
+  </div>
+  <div class="container clearfix">
     <%=flash_html%>
     <%= yield %>
   </div>

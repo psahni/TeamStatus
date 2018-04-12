@@ -1,0 +1,40 @@
+<div class='template no-gutter'>
+  <h4>Create Risk Sheet</h4>
+  <div class="form m-t-10">
+    <%=form_for @risk_document, :url => create_risk_sheet_utility_index_path do |form| %>
+      <div class="form-group">
+        <label class='form-label'>Feature Id</label>
+        <%=form.text_field :feature_id%>
+      </div>
+      <div class="form-group">
+        <label class='form-label'>Feature Link</label>
+        <%=form.text_field :feature_link%>
+      </div>
+      <div class="form-group">
+        <label class='form-label'>Feature Name</label>
+        <%=form.text_field :feature_name%>
+      </div>
+      <div class="form-group">
+        <label class='form-label'>Current Status</label>
+        <%=form.text_field :status%>
+      </div>
+      <div class="form-group">
+        <label class='form-label'>Iteration</label>
+        <%=form.text_field :iteration%> * Type only 1 for i1
+      </div
+      <div class="form-group">
+        <label class='form-label'>PRD</label>
+        <%=form.check_box :prd, {}%>
+      </div>
+      <div class="form-group">
+        <label class='form-label'>UX</label>
+        <%=form.check_box :ux, {}%>
+      </div>
+      <div class="form-group">
+        <label class='form-label'>Notes</label>
+        <%=form.text_area :notes%>
+      </div>
+      <%=form.submit @risk_document.id ? 'Update' : 'Create', :class => 'button'%>
+    <% end %>
+  </div>
+</div>
