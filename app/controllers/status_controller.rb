@@ -70,6 +70,7 @@ end
   def prev_status
     diff = params[:diff].to_i
     @today_statuses = Status.fetch_prev_day_statuses(diff)
+    @risk_documents = RiskDocument.where(:enabled => true)
     render :template => 'status/status_report.html.erb'
   end
 
