@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :utility  do
     collection do
+      get  :risk_document
       get  :edit_risk_sheet
       post :create_risk_sheet
       put  :update_risk_sheet
