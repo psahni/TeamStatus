@@ -36,7 +36,7 @@ namespace :db do
   end
 
   task :disable_users => :environment  do
-    disable_users = ['adwitiya.prabhakar', 'prashant.goel', 'kashish.kumar']
+    disable_users = ['adwitiya.prabhakar', 'prashant.goel', 'kashish.kumar', 'isha.mahajan@globallogic.com', 'shuaib.anwar@globallogic.com', 'a.shrivastav@globallogic.com']
 
     disable_users.each do |_username|
       user = User.where(:username => _username).first

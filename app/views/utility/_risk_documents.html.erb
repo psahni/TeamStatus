@@ -17,7 +17,7 @@ style="width: <%=is_website_view ? '100%' : '85%'%>;border: 1px solid black;bord
   </thead>
   <tbody>
     <% risk_documents.each do |rd|%>
-      <tr style="font-size:13px;background-color: #F8F8F8">
+      <tr style="font-size:13px;background-color: #F8F8F8;opacity: <%=rd.enabled ? 1 : 0.6 %>">
         <td style="word-wrap:break-word;border: 1px solid black;text-align: center;height: 30px;width: 8%;"><%=rd.feature_id!='0' ? (link_to(rd.feature_id, rd.feature_link, :target => :blank)) : ''%></td>
         <td style="word-wrap:break-word;border: 1px solid black;text-align: center;height: 30px;width: 8%;"><%=rd.feature_name%></td>
         <td style="word-wrap:break-word;border: 1px solid black;text-align: center;height: 30px;width: 8%;"><%=rd.status%></td>
@@ -25,7 +25,10 @@ style="width: <%=is_website_view ? '100%' : '85%'%>;border: 1px solid black;bord
         <td style="word-wrap:break-word;border: 1px solid black;text-align: center;height: 30px;width: 8%;"><%=rd.feature_id!='0' ? (rd.ux ? 'Yes' : 'No') : ''%></td>
         <td style="word-wrap:break-word;border: 1px solid black;text-align: center;height: 30px;width: 8%;"><%=rd.notes%></td>
         <% if is_website_view %>
-          <td style="word-wrap:break-word;border: 1px solid black;text-align: center;height: 30px;width: 8%;"><%=link_to 'Edit', edit_risk_sheet_utility_index_path(:document_id => rd.id)%></td>
+          <td style="word-wrap:break-word;border: 1px solid black;text-align: center;height: 30px;width: 8%;">
+            <%=link_to 'Edit', edit_risk_sheet_utility_index_path(:document_id => rd.id)%> |
+            <%=link_to (rd.enabled ? 'Disable' : 'Enable'), remove_risk_sheet_utility_index_path(:document_id => rd.id), :method => :delete %>
+          </td>
         <% end %>
       </tr>
     <% end %>

@@ -59,7 +59,7 @@ end
   def status_report
    @today_statuses = Status.fetch_today_statuses
    @users_not_updated_status = User.find_who_have_not_updated_status
-   @risk_documents = RiskDocument.all
+   @risk_documents = RiskDocument.where(:enabled => true)
    if email_view?
      render :template => 'status/status_report_email.html.erb'
    end
@@ -77,9 +77,10 @@ end
 
   def notify_status
    @today_statuses = Status.fetch_today_statuses
+   @risk_documents = RiskDocument.where(:enabled => true)
    @email_notification = EmailNotification.new(params[:email])
      if @email_notification.valid?
-       UserNotifier.send_status(@today_statuses,  @email_notification.email).deliver
+       UserNotifier.send_status(@today_statuses,  @risk_documents, @email_notification.email).deliver
        flash[:success] = "Status has been successfully sent"
        redirect_to status_report_status_index_path
     else

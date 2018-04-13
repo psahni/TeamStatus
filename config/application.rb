@@ -29,8 +29,8 @@ module TeamStatus
       :address              => "smtp.gmail.com",
       :port                 => 587,
       :domain               => "globallogic.com",
-      :user_name            => "prashantkumar.sahni@globallogic.com",
-      :password             => "ErdFcv#123#",
+      :user_name            => "",
+      :password             => "",
       :authentication       => 'plain'
     }
 
