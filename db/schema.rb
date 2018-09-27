@@ -51,10 +51,10 @@ ActiveRecord::Schema.define(version: 20180413054540) do
     t.string   "email",       limit: 255
     t.string   "name",        limit: 255
     t.string   "username",    limit: 255
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.integer  "sorder",      limit: 4
-    t.boolean  "is_disabled",             default: true
+    t.boolean  "is_disabled",             default: false
   end
 
 end

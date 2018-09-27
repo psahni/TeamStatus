@@ -8,17 +8,13 @@
 
 USERS =
   {
-    'Smita'    =>       {:email => 'smita.batra@globallogic.com',         :username => 'smita.batra',        :sorder => 1 },
-    'Ashish'   =>       {:email => 'a.shrivastav@globallogic.com',        :username => 'ashish.shrivastav',  :sorder => 2 },
-    'Isha'    =>        {:email => 'isha.mahajan@globallogic.com',        :username => 'isha.mahajan',      :sorder => 3  },
-    'Diljohn'  =>       {:email => 'diljohn.singh@globallogic.com',       :username => 'diljohn.singh',     :sorder => 5  },
-    'Pankaj'   =>       {:email => 'pankaj.upadhyay@globallogic.com',     :username => 'pankaj.upadhyay',   :sorder => 6  },
-    'Prashant Sahni' => {:email => 'prashantkumar.sahni@globallogic.com', :username => 'prashant.sahni',    :sorder => 7  },
-    'Shuaib'   =>       {:email => 'shuaib.anwar@globallogic.com',        :username => 'shuaib.anwar',      :sorder => 8  },
-    'Madhuri' =>        {:email => 'madhuri.rawat@globallogic.com',       :username => 'madhuri.rawat' ,    :sorder => 9  },
-    'Rani'    =>        {:email => 'rani.agrawal@globallogic.com',        :username => 'rani.agrawal',      :sorder => 10 },
-    'Priyanka' =>       {:email => 'priyanka.dudeja1@globallogic.com',    :username => 'priyanka.dudeja1',  :sorder => 11 },
-    'Ankur Verma' =>    {:email => 'ankur.verma1@globallogic.com',        :username => 'ankur.verma',       :sorder => 12 }
+    'Sanyam'    =>      {:email => 'sanyam.bharti@globallogic.com',          :username => 'sanyam.bharti',  :sorder => 1 },
+    'Deepak'   =>       {:email => 'deepak.tyagi@globallogic.com',           :username => 'deepak.tyagi',   :sorder => 2 },
+    'Prashant'    =>    {:email => 'prashantkumar.sahni@globallogic.com',    :username => 'prashantkumar.sahni', :sorder => 3  },
+    'Jeevenjot'  =>     {:email => 'jeevenjot.singh@globallogic.com',        :username => 'jeevenjot.singh',     :sorder => 4  },
+    'Sachin' => {:email => 'sachin.rai@globallogic.com', :username => 'sachin.rai', :sorder => 5 },
+    'Ankur' =>  {:email => 'ankur.rana@globallogic.com', :username => 'ankur.rana', :sorder =>  6  },
+    'Arti' =>   {:email => 'aarti.gupta@globallogic.com', :username => 'aarti.gupta', :sorder => 7}
   }
 
 USERS.each do |name, user_info|

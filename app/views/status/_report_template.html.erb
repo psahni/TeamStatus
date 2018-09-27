@@ -7,11 +7,7 @@
       </p>
     </div>
   <% end %>
-  <%=render :partial => 'utility/risk_documents', :locals => {:risk_documents => risk_documents, :is_website_view => false }%>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
+  <%#=render :partial => 'utility/risk_documents', :locals => {:risk_documents => risk_documents, :is_website_view => false }%>
   <table class="table table-striped"
          style="width: <%=is_website_view ? '100%' : '85%'%>;border: 1px solid black;border-collapse:collapse;font-size:13px;font-family: rial, Sans-Serif;overflow:auto;table-layout:fixed;text-align: center;height: 30px;margin-bottom: 30px;">
     <thead>
@@ -21,7 +17,7 @@
         <th style="border: 1px solid black;text-align: center;height: 30px;width:34%;vertical-align:middle">Plan for tomorrow</th>
         <th style="border: 1px solid black;text-align: center;height: 30px;width:16%;vertical-align:middle">Impediments</th>
         <% if is_website_view %>
-          <th style="border: 1px solid black;text-align: center;height: 30px;width:8%">Rally Updated?</th>
+          <th style="border: 1px solid black;text-align: center;height: 30px;width:8%">Jira Updated</th>
         <% end %>
       </tr>
     </thead>
